@@ -1,722 +1,557 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Network - Protect Earth</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>緑を守る | エコロジーアクション</title>
     <style>
+        /* ----- リセット & ベース ----- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #2e7d32;
-            --secondary: #4caf50;
-            --accent: #8bc34a;
-            --light: #e8f5e9;
-            --dark: #1b5e20;
-            --text: #333333;
-            --white: #ffffff;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f6faf7;
+            color: #1f2e26;
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
+        /* ----- ヘッダー / ナビゲーション (シンプル・モダン) ----- */
         header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.9rem 2rem;
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-container {
+            z-index: 1000;
+            border-bottom: 1px solid rgba(160, 190, 160, 0.2);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 20px rgba(0, 20, 10, 0.04);
         }
 
         .logo {
+            font-weight: 650;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+            color: #1c4d2b;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.8rem;
-            font-weight: 700;
+            gap: 6px;
         }
 
-        .logo i {
-            font-size: 2rem;
+        .logo span {
+            background: #e3f0df;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1f582b;
         }
 
-        nav ul {
+        nav {
             display: flex;
-            list-style: none;
+            gap: 0.4rem;
+            flex-wrap: wrap;
         }
 
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            color: var(--white);
+        nav a {
+            color: #2a4532;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            position: relative;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            background: transparent;
         }
 
-        nav ul li a:hover {
-            color: var(--accent);
+        nav a:hover {
+            background: #e3f0df;
+            color: #12401e;
+            transform: translateY(-1px);
         }
 
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
+        /* ----- ヒーロー (ミニマル・グリーン) ----- */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            align-items: center;
+            background: linear-gradient(130deg, #f1f9f0 0%, #e2efe2 100%);
+            padding: 4rem 2rem;
             text-align: center;
-            color: var(--white);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
+            border-bottom: 1px solid rgba(100, 140, 100, 0.15);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent);
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: var(--text);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-img {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-item i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--dark);
+            font-size: 2.8rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            color: #1c4225;
             margin-bottom: 0.5rem;
         }
 
-        .stat-item p {
-            color: var(--text);
-        }
-
-        .initiatives {
-            background-color: var(--white);
-        }
-
-        .initiatives-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .initiative-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .initiative-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .initiative-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .initiative-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .initiative-card:hover .initiative-img img {
-            transform: scale(1.1);
-        }
-
-        .initiative-content {
-            padding: 1.5rem;
-        }
-
-        .initiative-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .initiative-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .cta {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            text-align: center;
-            padding: 5rem 0;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta p {
+        .hero p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 650px;
+            margin: 0 auto;
+            color: #2d4f36;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(4px);
+            padding: 0.4rem 1.6rem;
+            border-radius: 60px;
+            display: inline-block;
         }
 
-        .cta .btn {
-            background-color: var(--white);
-            color: var(--primary);
+        /* ----- コンテナ & セクション (すっきり) ----- */
+        .container {
+            max-width: 1100px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
         }
 
-        .cta .btn:hover {
-            background-color: var(--accent);
-            color: var(--white);
+        section {
+            background: white;
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2.2rem;
+            border-radius: 32px;
+            box-shadow: 0 8px 24px -12px rgba(40, 70, 40, 0.08);
+            border: 1px solid #e6f0e4;
+            transition: box-shadow 0.15s;
         }
 
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 3rem 0 1rem;
+        section:hover {
+            box-shadow: 0 14px 30px -14px rgba(60, 100, 60, 0.10);
         }
 
-        .footer-content {
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 620;
+            color: #194d27;
+            border-left: 5px solid #78b06b;
+            padding-left: 1rem;
+            margin-bottom: 1.6rem;
+            letter-spacing: -0.01em;
+        }
+
+        /* ----- グリッドカード (モダン・フラット) ----- */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.2rem;
         }
 
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
+        .card {
+            background: #f7fcf6;
+            padding: 1.8rem 1.4rem;
+            border-radius: 24px;
+            border: 1px solid #ddecdb;
+            transition: 0.2s;
+            text-align: center;
         }
 
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent);
+        .card:hover {
+            background: white;
+            border-color: #9dc792;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -16px #2f5a2c30;
         }
 
-        .footer-column p {
-            margin-bottom: 1rem;
+        .card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #246b32;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
         }
 
-        .footer-links {
-            list-style: none;
+        .card p {
+            color: #2e4a34;
+            font-size: 0.95rem;
         }
 
-        .footer-links li {
-            margin-bottom: 0.8rem;
+        .card .badge {
+            display: inline-block;
+            margin-top: 0.8rem;
+            background: #d5ead0;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1f512b;
         }
 
-        .footer-links li a {
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .social-links {
+        /* ----- フォーム (シンプル・余白たっぷり) ----- */
+        form {
             display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-top: 0.6rem;
+        }
+
+        input, textarea {
+            background: #f9fdf9;
+            border: 1.5px solid #d2e6cd;
+            border-radius: 40px;
+            padding: 0.9rem 1.4rem;
+            font-size: 1rem;
+            transition: 0.2s;
+            outline: none;
+            font-family: inherit;
+            color: #1a3220;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #6dab62;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(100, 175, 90, 0.15);
+        }
+
+        textarea {
+            border-radius: 28px;
+            resize: vertical;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
             gap: 1rem;
         }
 
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
+        button {
+            background: #286f33;
+            color: white;
+            border: none;
+            padding: 0.8rem 2.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 60px;
             cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(30, 80, 30, 0.1);
+            letter-spacing: 0.3px;
         }
 
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .initiatives-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        button:hover {
+            background: #1a5724;
+            transform: scale(0.97);
+            box-shadow: 0 8px 16px -8px #1b4a1f40;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary);
+        .form-hint {
+            font-size: 0.85rem;
+            color: #477a4a;
+            background: #edf7ea;
+            padding: 0.2rem 1.2rem;
+            border-radius: 60px;
+        }
+
+        /* ----- フッター (クリーン) ----- */
+        footer {
+            background: #eaf3e8;
+            padding: 2.2rem 1.5rem;
+            text-align: center;
+            color: #1d4225;
+            border-top: 1px solid #c7dec2;
+            border-radius: 32px 32px 0 0;
+            margin-top: 2.5rem;
+        }
+
+        footer p {
+            margin: 0.2rem 0;
+            font-weight: 450;
+        }
+
+        .footer-small {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+
+        /* ----- トースト (シンプルフィードバック) ----- */
+        .toast {
+            visibility: hidden;
+            min-width: 200px;
+            background: #1b4723;
+            color: #f0fcee;
+            text-align: center;
+            border-radius: 60px;
+            padding: 0.8rem 1.8rem;
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            font-weight: 500;
+            backdrop-filter: blur(6px);
+            background: #1c4824e0;
+            box-shadow: 0 6px 18px rgba(0,20,0,0.2);
+            opacity: 0;
+            transition: opacity 0.25s;
+        }
+
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* ----- レスポンシブ (モバイルファースト) ----- */
+        @media (max-width: 700px) {
+            header {
                 flex-direction: column;
-                padding: 1rem 0;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                align-items: flex-start;
+                gap: 0.6rem;
+                padding: 0.8rem 1.2rem;
             }
-            
-            nav ul.active {
-                display: flex;
+            nav a {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
             }
-            
-            nav ul li {
-                margin: 0;
-                padding: 0.8rem 0;
+            .hero h1 {
+                font-size: 2.2rem;
             }
-            
-            .mobile-menu {
-                display: block;
+            section {
+                padding: 1.5rem;
             }
-            
-            .initiatives-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
+            h2 {
+                font-size: 1.5rem;
             }
         }
 
-        /* Animation for stats counter */
-        .counter {
-            transition: all 0.5s ease;
+        /* アンカーオフセット */
+        html {
+            scroll-padding-top: 100px;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container nav-container">
-            <div class="logo">
-                <i class="fas fa-seedling"></i>
-                <span>Green Network</span>
-            </div>
-            <nav>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#initiatives">Initiatives</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Protect Our Planet, Preserve Our Future</h1>
-            <p>Join the global movement to create a sustainable world through conservation, education, and community action.</p>
-            <a href="#get-involved" class="btn">Join Our Network</a>
-        </div>
-    </section>
+<header>
+    <div class="logo">
+        🌱 エコ・ネイチャー
+        <span>緑を守る</span>
+    </div>
+    <nav>
+        <a href="#about">私たちについて</a>
+        <a href="#issues">環境課題</a>
+        <a href="#action">参加する</a>
+    </nav>
+</header>
 
-    <!-- About Section -->
+<!-- ヒーロー -->
+<div class="hero">
+    <h1>共生する未来へ</h1>
+    <p>一人ひとりの選択が、森と海を守る力になります。</p>
+    <div style="margin-top: 1.2rem; display: inline-block; background: #cde4c6; padding: 0.2rem 1.6rem; border-radius: 60px; font-size: 0.9rem; color: #1b4b23;">
+        🌳 これまでに 2,800 本以上の植樹を支援
+    </div>
+</div>
+
+<div class="container">
+    <!-- アバウト -->
     <section id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Green Network</h2>
-                <p>We are a global community dedicated to environmental protection and sustainable development.</p>
-            </div>
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Team planting trees">
-                </div>
-                <div class="about-text">
-                    <h3>Our Mission</h3>
-                    <p>Green Network is committed to creating a sustainable future by protecting natural ecosystems, promoting renewable energy, and empowering communities to take environmental action.</p>
-                    <p>Founded in 2010, we've grown from a small grassroots organization to an international network with over 50,000 members across 120 countries.</p>
-                    <p>Our approach combines scientific research, community engagement, and policy advocacy to address the most pressing environmental challenges of our time.</p>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
-            </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <i class="fas fa-tree"></i>
-                    <h3 class="counter" data-target="2500000">0</h3>
-                    <p>Trees Planted</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <h3 class="counter" data-target="50000">0</h3>
-                    <p>Active Members</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3 class="counter" data-target="120">0</h3>
-                    <p>Countries Reached</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-recycle"></i>
-                    <h3 class="counter" data-target="1500">0</h3>
-                    <p>Cleanup Projects</p>
-                </div>
-            </div>
+        <h2>🌿 私たちの使命</h2>
+        <p style="font-size: 1.05rem; margin-bottom: 0.8rem;">
+            私たちは、生物多様性の保全と気候変動への適応を目指す、市民ベースの環境団体です。
+            科学とコミュニティを結び、持続可能な未来を共に創ります。
+        </p>
+        <p>
+            これまでに全国 12 か所で生態系回復プロジェクトを実施。地域の方々と協力し、在来種の植林やプラスチック削減キャンペーンを展開しています。
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem;">
+            <span style="background: #e3f0dd; padding: 0.2rem 1.2rem; border-radius: 60px;">🌎 気候アクション</span>
+            <span style="background: #e3f0dd; padding: 0.2rem 1.2rem; border-radius: 60px;">🐾 野生生物保護</span>
+            <span style="background: #e3f0dd; padding: 0.2rem 1.2rem; border-radius: 60px;">♻️ ゼロ・ウェイスト</span>
         </div>
     </section>
 
-    <!-- Initiatives Section -->
-    <section class="initiatives" id="initiatives">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Initiatives</h2>
-                <p>Discover the key programs and projects we're implementing to protect our planet.</p>
+    <!-- 環境課題 -->
+    <section id="issues">
+        <h2>⚠️ 今、直面する環境課題</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🐘 生物多様性</h3>
+                <p>絶滅危惧種の減少、生態系の分断化。私たちは保護区の拡大と遺伝的多様性の保全に取り組んでいます。</p>
+                <div class="badge">30 種以上のモニタリング</div>
             </div>
-            <div class="initiatives-grid">
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://dialogue.earth/content/uploads/2021/04/lessons-from-the-rush-to-reforest-china-dialogue-2400x1599.jpg" alt="Reforestation">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Global Reforestation</h3>
-                        <p>Planting millions of trees worldwide to restore ecosystems, combat climate change, and protect biodiversity.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Ocean Conservation">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Ocean Conservation</h3>
-                        <p>Protecting marine ecosystems, reducing plastic pollution, and promoting sustainable fishing practices.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Renewable Energy">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Renewable Energy</h3>
-                        <p>Promoting solar, wind, and other clean energy sources to reduce dependence on fossil fuels.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
+            <div class="card">
+                <h3>🧴 プラスチック汚染</h3>
+                <p>年間 800 万トンが海洋に流出。使い捨てプラスチックの削減とリサイクルインフラを支援します。</p>
+                <div class="badge">2026 年までに 50 トン回収目標</div>
             </div>
+            <div class="card">
+                <h3>🌳 森林減少</h3>
+                <p>熱帯林の喪失は気候変動を加速。私たちは植林と持続可能な林業を推進し、カーボンシンクを強化します。</p>
+                <div class="badge">1,200 ha の再生を支援</div>
+            </div>
+        </div>
+        <!-- 補足メッセージ -->
+        <div style="background: #eaf5e6; border-radius: 20px; padding: 1rem 1.6rem; margin-top: 1.8rem; border-left: 4px solid #529a4a;">
+            <p style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-weight: 450;">
+                <span style="font-weight: 600;">🌤️ 気候変動との関連：</span> 
+                森林と湿地は二酸化炭素を吸収する「緑の肺」。その保全は、私たちの生存基盤そのものです。
+            </p>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta" id="get-involved">
-        <div class="container">
-            <h2>Join Our Global Movement</h2>
-            <p>Together, we can create a sustainable future for generations to come. Every action counts, no matter how small.</p>
-            <a href="#" class="btn">Become a Member</a>
+    <!-- アクション / 参加フォーム -->
+    <section id="action">
+        <h2>🤝 ボランティアに参加する</h2>
+        <p>メールアドレスを登録して、最新の植樹イベントや清掃活動、オンラインセミナー情報を受け取りましょう。</p>
+        <form id="volForm">
+            <input type="text" id="nameField" placeholder="お名前" required>
+            <input type="email" id="emailField" placeholder="メールアドレス" required>
+            <textarea id="msgField" rows="3" placeholder="環境へのメッセージ・ご意見があればどうぞ…（任意）"></textarea>
+            <div class="btn-group">
+                <button type="submit" id="submitBtn">🌱 参加する</button>
+                <span class="form-hint">📩 毎月のニュースレターも配信</span>
+            </div>
+        </form>
+        <div style="margin-top: 1.2rem; background: #f1faf0; padding: 0.4rem 1.2rem; border-radius: 60px; display: inline-block; font-size: 0.9rem;">
+            📅 次回イベント: 6月21日 (日) 里山再生ワークショップ
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Green Network</h3>
-                    <p>We are dedicated to protecting our planet through collaborative action, education, and sustainable solutions.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#initiatives">Initiatives</a></li>
-                        <li><a href="#get-involved">Get Involved</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Our Programs</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Reforestation</a></li>
-                        <li><a href="#">Ocean Cleanup</a></li>
-                        <li><a href="#">Wildlife Protection</a></li>
-                        <li><a href="#">Climate Education</a></li>
-                        <li><a href="#">Sustainable Agriculture</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Copper Creek Drive, New York</p>
-                    <p><i class="fas fa-phone"></i> +1 (312) 171-0771</p>
-                    <p><i class="fas fa-envelope"></i> support@greennetwork.org</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Green Network. All rights reserved.</p>
-            </div>
+    <!-- インパクト表示 (ミニマル) -->
+    <section style="background: #f6fbf4; border: 1px solid #d5e8d0;">
+        <h2>📊 私たちの足跡</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 0.8rem; text-align: center;">
+            <div><span style="font-size: 2.2rem; font-weight: 620; color: #1e672a;">1,420+</span><br>植樹ボランティア</div>
+            <div><span style="font-size: 2.2rem; font-weight: 620; color: #1e672a;">86</span><br>環境教育プログラム</div>
+            <div><span style="font-size: 2.2rem; font-weight: 620; color: #1e672a;">7.8 t</span><br>プラスチック回収</div>
+            <div><span style="font-size: 2.2rem; font-weight: 620; color: #1e672a;">18</span><br>パートナー団体</div>
         </div>
-    </footer>
+        <p style="margin-top: 1.2rem; font-style: italic; color: #3d6541; text-align: center;">— 皆さまのご支援で、緑は確実に広がっています —</p>
+    </section>
+</div>
 
-    <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
+<footer>
+    <p>🌍 未来のためのエコロジー・アクション</p>
+    <p style="font-weight: 300;">&copy; 2026 緑守プロジェクト | 共に、地球を守る一歩を。</p>
+    <p class="footer-small">contact@midori-mamoru.org (お問い合わせ)</p>
+</footer>
 
-        // Counter Animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            const speed = 200; // The lower the slower
-            
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                
-                const inc = target / speed;
-                
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(animateCounters, 1);
-                } else {
-                    counter.innerText = target;
-                }
-            });
+<!-- トースト -->
+<div id="toastMessage" class="toast">🌿 ご登録ありがとうございます！ 近日中にご連絡します</div>
+
+<script>
+    (function() {
+        const form = document.getElementById('volForm');
+        const nameInput = document.getElementById('nameField');
+        const emailInput = document.getElementById('emailField');
+        const msgInput = document.getElementById('msgField');
+        const toast = document.getElementById('toastMessage');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function showToast(text, isError = false) {
+            toast.textContent = text || '🌿 ご登録ありがとうございます！ 近日中にご連絡します';
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
         }
 
-        // Initialize counters when page loads
-        window.addEventListener('load', animateCounters);
+        let isSubmitting = false;
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    document.querySelector('nav ul').classList.remove('active');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (isSubmitting) return;
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+
+            if (name === '' || email === '') {
+                showToast('⚠️ お名前とメールアドレスを入力してください', true);
+                return;
+            }
+
+            // 簡易メール形式
+            const mailPattern = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
+            if (!mailPattern.test(email)) {
+                showToast('有効なメールアドレスを入力してください', true);
+                return;
+            }
+
+            isSubmitting = true;
+            submitBtn.textContent = '送信中…';
+            submitBtn.disabled = true;
+
+            // 擬似送信
+            setTimeout(() => {
+                const message = msgInput.value.trim();
+                console.log(`[ボランティア] 名前: ${name}, メール: ${email}, メッセージ: ${message || 'なし'}`);
+
+                // 成功トースト
+                showToast(`✅ ${name} さん、登録完了！ 緑のアクションを一緒に広げましょう`);
+
+                // フォームリセット（メッセージは残してもいいが、リセットする）
+                nameInput.value = '';
+                emailInput.value = '';
+                msgInput.value = '';
+
+                // ローカルカウンタ (遊び心)
+                let count = parseInt(localStorage.getItem('midoriVolCount') || '0', 10);
+                count += 1;
+                localStorage.setItem('midoriVolCount', count);
+                if (count % 7 === 0) {
+                    setTimeout(() => {
+                        toast.textContent = `🎉 なんと ${count} 人目の参加者です！ ありがとうございます！`;
+                        toast.classList.add('show');
+                        setTimeout(() => toast.classList.remove('show'), 3500);
+                    }, 400);
+                }
+
+                submitBtn.textContent = '🌱 参加する';
+                submitBtn.disabled = false;
+                isSubmitting = false;
+            }, 700);
+        });
+
+        // ナビゲーションスムーズスクロール
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 }
             });
         });
-    </script>
-</body>
 
+        // ウェルカムコンソール
+        console.log('%c🌱 緑守プロジェクト | あなたの一歩が自然を守ります', 'color: #1c6428; font-size: 13px; font-weight: 600;');
+
+        // 初回訪問者にさりげないメッセージ
+        if (!localStorage.getItem('welcomeGreen')) {
+            setTimeout(() => {
+                const tip = document.createElement('div');
+                tip.style.position = 'fixed';
+                tip.style.bottom = '80px';
+                tip.style.right = '20px';
+                tip.style.background = 'white';
+                tip.style.padding = '6px 18px';
+                tip.style.borderRadius = '40px';
+                tip.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+                tip.style.border = '1px solid #bcddb3';
+                tip.style.fontSize = '0.85rem';
+                tip.style.zIndex = '999';
+                tip.innerHTML = '🌿 今日から始めるエコアクション';
+                document.body.appendChild(tip);
+                setTimeout(() => tip.remove(), 5000);
+                localStorage.setItem('welcomeGreen', 'true');
+            }, 900);
+        }
+    })();
+</script>
+
+</body>
 </html>
